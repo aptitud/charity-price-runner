@@ -19,6 +19,7 @@ import * as reducers from './src/reducers';
 
 import SearchBox from './src/components/searchBox'
 import ResultList from './src/components/resultList'
+import GoodSlider from './src/components/goodSlider'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const reducer = combineReducers(reducers);
@@ -27,12 +28,17 @@ const store = createStoreWithMiddleware(reducer);
 //import App from './src/containers/App'
 
 class App extends Component {
+  state = {
+    slideCompletionValue: 0,
+    slideCompletionCount: 0,
+  }
   render() {
     return (
       <Provider store={store}>
         <View style={styles.container}>
           <Text>Sök</Text>
           <SearchBox/>
+          <GoodSlider/>
           <ResultList/>
         </View>
       </Provider>

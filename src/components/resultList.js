@@ -10,14 +10,14 @@ import leinosSuperRow from './leinosSuperRow'
 
 class ResultListComponent extends Component{
   render() {
-    const { result } = this.props
+    const { result, slideValue } = this.props
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     const dataSource = ds.cloneWithRows(result)
     return (
       <ListView
         style={styles.list}
         dataSource={dataSource}
-        renderRow={ (rowData) => leinosSuperRow(rowData) }
+        renderRow={ (rowData) => leinosSuperRow(rowData, slideValue) }
       />
     )
   }
@@ -25,7 +25,8 @@ class ResultListComponent extends Component{
 
 export default connect(
   state => ({
-    result: state.search.result
+    result: state.search.result,
+    slideValue: state.search.slide
   }))
 (ResultListComponent)
 

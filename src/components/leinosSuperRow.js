@@ -11,7 +11,7 @@ import {
 
 import MyWeb from './webben'
 
-const leinosSuperRow = (resultItem) => {
+const leinosSuperRow = (resultItem, slideValue) => {
   return (
     <View>
       <View style={{flexDirection: 'row'}}>
@@ -29,7 +29,7 @@ const leinosSuperRow = (resultItem) => {
           {text: 'Cancel', onPress: () => {}},
           ]
         )}>
-          <Text style={styles.button}>UNHCR {resultItem.price.regular + 100}:-</Text>
+          <Text style={styles.button}>UNHCR {parseInt(resultItem.price.regular + slideValue)}:-</Text>
         </TouchableHighlight>
       </View>
     </View>
